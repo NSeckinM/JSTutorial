@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    div {
+
+        margin: 30px;
+
+    }
+
+    label {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+</style>
+
+
+<body id="bodi">
+
+    <div>
+
+        <label for="">Renk</label>
+        <input type="text" name="" id="renkver">
+        <button onclick="renkdegistir()">Sayfanın Rengini değiştir</button>
+
+    </div>
+
+
+    <div>
+
+        <label for="">Numbers</label>
+        <input type="Number" name="" id="sayi1">
+        <input type="number" name="" id="sayi2">
+
+    </div>
+    <div>
+
+        <button onclick="sum()">Sum</button>
+        <button onclick="sub()">Sub</button>
+        <button onclick="mltply()">multiply</button>
+        <button onclick="div()">Divide</button>
+
+    </div>
+
+
+    <div>
+
+        <table id="del">
+
+            <tr>
+                <th>Country</th>
+                <th>Capital</th>
+            </tr>
+            <tr>
+                <td>Turkey</td>
+                <td>Ankara</td>
+            </tr>
+            <tr>
+                <td>England</td>
+                <td>London</td>
+            </tr>
+            <tr>
+                <td>Spain</td>
+                <td>Madrid</td>
+            </tr>
+            <tr>
+                <td>Colombia</td>
+                <td>Bogota</td>
+            </tr>
+            <tr>
+                <td>Italy</td>
+                <td>Roma</td>
+            </tr>
+            <tr>
+                <td>UAE</td>
+                <td>Dubai</td>
+            </tr>
+
+        </table>
+
+        <button onclick="deletory()"> Delete 3. row from table </button>
+
+    </div>
+
+    <div>
+
+        <button type="button" id="cms" onclick="changesize()">Change my size</button>
+
+    </div>
+
+
+    <div style="display: flow-root;">
+
+        <button id="btn1" onclick="hide1()"> hide me </button>
+        <button id="btn2" onclick="hide2()"> hide me </button>
+        <button id="btn3" onclick="hide3()"> hide me </button>
+
+    </div>
+
+    <div>
+
+        <label id="lbl1" for=""></label>
+        <label id="lbl2" for=""></label>
+        <label id="lbl3" for=""></label>
+        <label id="lbl4" for=""></label>
+        <label id="lbl5" for=""></label>
+        <label id="lbl6" for=""></label>
+
+        <button type="button" id="generate" onclick="generate()">generate random number</button>
+
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+
+
+
+
+    // 1-) Variable Declaration-----
+
+    var number = 55;
+    var string = "hello js";
+    var bool = true;
+
+    // 2-) declaration of two arrays which have 5 item, one of the numeric type and the other one is string type ;
+
+    let FootballClubs = ["Besiktas", "Galatasaray", "Fenerbahce", "TrabzonSpor", "Bursa Spor"];
+
+    let YearOfEstablishment = [1903, 1905, 1907, 1967, 1963];
+
+    //3-) declarate object which has name, Unitprice and Stock properties and fill it with items;
+
+    let product1 = {
+        name: "Iphone",
+        UnitPrice: 10000,
+        UnitInStock: 200
+    }
+
+    //4-) Define another 5 more object same like above qoestion and push all of them into defined new array;
+
+    let product2 = {
+        name: "Ipad",
+        UnitPrice: 6500,
+        UnitInStock: 150
+    }
+
+    let product3 = {
+        name: "Ipod",
+        UnitPrice: 3000,
+        UnitInStock: 250
+    }
+
+    let product4 = {
+        name: "Samsung",
+        UnitPrice: 6400,
+        UnitInStock: 1357
+    }
+
+    let product5 = {
+        name: "MacPro",
+        UnitPrice: 45000,
+        UnitInStock: 27
+    }
+
+    let product6 = {
+        name: "AirPods",
+        UnitPrice: 2000,
+        UnitInStock: 584
+    }
+
+    let ElectronicDevices = [];
+
+    ElectronicDevices.push(product2, product3, product4, product5, product6);
+
+    //5-) Show on the console that how many items do you have in the defined array ?
+
+    let countOfItem = ElectronicDevices.length;
+    console.log(countOfItem);
+
+    //6-) Remove the last item of the defined array
+
+    ElectronicDevices.pop();
+    console.log(ElectronicDevices);
+
+    //7-) Remove the first item of the defined array
+
+    ElectronicDevices.splice(0, 1);
+    console.log(ElectronicDevices);
+
+    //8-)Find the item which is "name" property is equal to samsung in the defined array and then show on the console
+
+    let ElementSamsung = ElectronicDevices.find(x => x.name == "Samsung");
+    console.log(ElementSamsung);
+
+    //9-) Find the item(s) which is the UnitPrice Property value is higher than 100 in the defined array and then show on the console
+
+    let filteredProduct = [];
+    filteredProduct = ElectronicDevices.filter(x => x.UnitPrice > 100);
+    console.log(filteredProduct);
+
+    //10-)render 2 input button and 4 calculater button which is them sub,sum,div,multiply
+    //when the user click the button, the button will calculate the input values and show the result on the screen like alert;
+
+    function sum() {
+
+        let value1 = Number(document.getElementById("sayi1").value);
+        let value2 = Number(document.getElementById("sayi2").value);
+
+        let result = value1 + value2;
+        alert(result);
+
+    }
+    function sub() {
+
+        let value1 = document.getElementById('sayi1').value;
+        let value2 = document.getElementById("sayi2").value;
+
+        let result = (value1 - value2);
+
+        alert(result);
+    }
+    function mltply() {
+
+        let value1 = document.getElementById('sayi1').value;
+        let value2 = document.getElementById("sayi2").value;
+
+        let result = (value1 * value2);
+
+        alert(result);
+    }
+    function div() {
+        let value1 = document.getElementById('sayi1').value;
+        let value2 = document.getElementById("sayi2").value;
+        let result = (value1 / value2);
+
+        alert(result);
+    }
+
+    //11-)render a table where is has min 5 row, and add button ,when the user click the button, button will be deleted third row from the table
+
+    function deletory() {
+        let value = document.getElementById('del').deleteRow(3);
+    }
+
+    //12-)Put a button, when the button is pressed change the width of button randomly with range 100 to 500.
+    function changesize() {
+        document.getElementById("cms").style.width = (Math.floor(Math.random() * 500) + 100) + "px";
+    }
+
+    //13-)Put one input label and  a button,when the button is pressed change the  background color of body with input value if input not valid throw a alert.
+
+    function renkdegistir() {
+
+        let value3 = document.getElementById("renkver").value;
+
+        if (value3 > 16777216 || value3 < 0) {
+
+            alert("Color number is not valid please enter the right range number of the colors")
+        }
+        document.getElementById('bodi').style.backgroundColor = value3;
+
+    }
+
+    //14-)render three button then the clicked button will be disappear when user click on the one of them
+
+    function hide1() {
+
+        document.getElementById("btn1").style.display = "none";
+
+    }
+
+    function hide2() {
+
+        document.getElementById("btn2").style.display = "none";
+
+    }
+
+    function hide3() {
+
+        document.getElementById("btn3").style.display = "none";
+
+    }
+
+    //15) Ekrana bir buton 6 tane de label koy.Butona tıkladığında 1 ile 49 arasında rastgele 6 sayı üretip bunları tek tek labellara yazsın. Sayısal loto programı ( aynı sayı olmamalı )
+
+    function generate()
+    {
+
+        let a = [];
+        for (i = 0; i < 6; i++) {
+            var rnd = Math.floor(Math.random() * 50) + 1;
+            a.push(rnd);
+
+        }
+
+        document.getElementById("lbl1").innerHTML = a[0];
+        document.getElementById("lbl2").innerHTML = a[1];
+        document.getElementById("lbl3").innerHTML = a[2];
+        document.getElementById("lbl4").innerHTML = a[3];
+        document.getElementById("lbl5").innerHTML = a[4];
+        document.getElementById("lbl6").innerHTML = a[5];
+
+    }
+
+
+</script>
